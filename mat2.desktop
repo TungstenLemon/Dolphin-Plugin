@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;
+Actions=CleanMetadata;ShowMetadata;CleanLightweight
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Mat2
+Icon=security-high
+
+[Desktop Action CleanMetadata]
+Name=Clean Metadata
+Icon=security-high
+Exec=mat2 --inplace %F
+
+[Desktop Action CleanLightweight]
+Name=Clean Metadata (light)
+Icon=security-medium
+Exec=mat2 --inplace -L %F
+
+[Desktop Action ShowMetadata]
+Name=Show Metadata
+Icon=document-properties
+Exec=konsole --hold -e mat2 -s %F

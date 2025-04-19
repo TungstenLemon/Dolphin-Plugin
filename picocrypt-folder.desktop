@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+Actions=encrypt;encryptsafe;encryptparanoid
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Picocrypt
+Icon=document-encrypt
+
+[Desktop Action encrypt]
+Name=Encrypt
+Icon=document-encrypt
+Exec=tar -pzcf "%f.tar.gz" -C "%f/.." "$(basename "%f")" && konsole -e sh -c '~/go/bin/picocrypt "%f.tar.gz"' && rm -f "%f.tar.gz";
+
+[Desktop Action encryptparanoid]
+Name=Encrypt (Paranoid Mode)
+Icon=document-encrypt
+Exec=tar -pzcf "%f.tar.gz" -C "%f/.." "$(basename "%f")" && konsole -e sh -c '~/go/bin/picocrypt -p "%f.tar.gz"' && rm -f "%f.tar.gz";
+
+[Desktop Action encryptsafe]
+Name=Encrypt with Reed-Solomon
+Icon=document-encrypt
+Exec=tar -pzcf "%f.tar.gz" -C "%f/.." "$(basename "%f")" && konsole -e sh -c '~/go/bin/picocrypt -p -r "%f.tar.gz"' && rm -f "%f.tar.gz";

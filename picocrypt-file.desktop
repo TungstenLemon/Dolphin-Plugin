@@ -1,0 +1,28 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;
+Actions=encrypt;encryptsafe;decrypt;encryptparanoid
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Picocrypt
+Icon=document-encrypt
+
+[Desktop Action encrypt]
+Name=Encrypt
+Icon=document-encrypt
+Exec=konsole -e sh -c '~/go/bin/picocrypt "%f"';
+
+[Desktop Action encryptparanoid]
+Name=Encrypt (Paranoid Mode)
+Icon=document-encrypt
+Exec=konsole -e sh -c '~/go/bin/picocrypt -p "%f"';
+
+[Desktop Action encryptsafe]
+Name=Encrypt with Reed-Solomon
+Icon=document-encrypt
+Exec=konsole -e sh -c '~/go/bin/picocrypt -p -r "%f"';
+
+[Desktop Action decrypt]
+Name=Decrypt
+Icon=document-decrypt
+Exec=konsole -e sh -c '~/go/bin/picocrypt -f "%f"';
